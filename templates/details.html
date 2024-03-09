@@ -7,15 +7,8 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    {% block content %}
     <div class="container">
         <h1>Book List</h1>
-        {% for book in books %}
-        <a href="#">
-            <h3>{{ book['title'] }}</h3>
-        </a>
-        {% endfor %}
     </div>
-    {% endblock %}
 </body>
 </html>
