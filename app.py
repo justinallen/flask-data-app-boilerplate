@@ -34,5 +34,20 @@ def details(book_id):
     book = get_details(book_id)
     return render_template('details.html', book=book)
 
+def get_tag_list(genre):
+    conn = get_db_connection()
+    # execute a query
+    books = conn.execute('SELECT * FROM books WHERE genre = ?', (genre,)).fetchall()
+    conn.close()
+    if books is None:
+        abort(404)
+    return books
+
+@app.route('/tag/<genre>')
+def tag_list(genre):
+    books = get_tag_list(genre)
+    return render_template('tag.html', books=books)
+
+
 if __name__ == '__main__': 
     app.run(debug=True) 
