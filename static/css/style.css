@@ -8,3 +8,11 @@ body {
     max-width: 960px;
     margin: 2em auto;
 }
+.list-item {
+    padding: 1em;
+    margin: 1em 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.list-item h3 {
+    display: inline;
+}

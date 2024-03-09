@@ -20,15 +20,19 @@ def index():
     conn.close()
     return render_template('index.html', books=books)
 
-# create new route rendering a template called details.html
-@app.route('/details')
-def details():
+def get_details(book_id):
     conn = get_db_connection()
     # execute a query
-    books = conn.execute('SELECT * FROM books').fetchall()
-    # close the connection
+    book = conn.execute('SELECT * FROM books WHERE id = ?', (book_id,)).fetchone()
     conn.close()
-    return render_template('details.html', books=books)
+    if book is None:
+        abort(404)
+    return book
+
+@app.route('/<int:book_id>')
+def details(book_id):
+    book = get_details(book_id)
+    return render_template('details.html', book=book)
 
 if __name__ == '__main__': 
     app.run(debug=True) 

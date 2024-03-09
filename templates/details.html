@@ -8,7 +8,10 @@
 </head>
 <body>
     <div class="container">
-        <h1>Book List</h1>
+        <h1>{{ book['title'] }}</h1>
+        <p>By {{ book['author'] }}</p>
+        <p>Genre: {{ book['genre'] }}</p>
+        <p>Description:<br> {{ book['description'] }}</p>
     </div>
 </body>
 </html>
