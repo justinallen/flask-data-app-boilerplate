@@ -2,11 +2,11 @@
 
 {% block content %}
     <div class="content">
-        <h2>Book List</h2>
+        <h3>Book List</h3>
         <div class="list">
         {% for book in books %}
         <div class="list-item">
-        <a href="{{ url_for('details', book_id=book['id']) }}"><h3>{{ book['title'] }}</h3></a>, by {{ book['author'] }}
+        <a href="{{ url_for('details', book_id=book['id']) }}"><strong>{{ book['title'] }}</strong></a>, by {{ book['author'] }}
         </div>
         {% endfor %}    
         </div>
