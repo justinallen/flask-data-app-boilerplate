@@ -4,6 +4,19 @@ body {
     margin: 0;
     padding: 0;
 }
+nav ul {
+    list-style: none;
+    display: flex;
+}
+nav ul li {
+    padding: 0 1em;
+}
+nav ul li:first-of-type {
+    padding-left: 0;
+}
+nav ul li:last-of-type {
+    padding-right: 0;
+}
 .container {
     max-width: 960px;
     margin: 2em auto;
